@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Editor from '@monaco-editor/react';
 import axios from 'axios';
 
-const BACKEND_URL = process.env.PUBLIC_BACKEND_URL || 'http://localhost:5000';
+const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
 
 const defaultTemplates = {
   cpp: '#include <iostream>\nusing namespace std;\n\nint main() {\n    cout << "Hello World!\\n";\n    return 0;\n}',
@@ -25,6 +25,8 @@ export default function GeneralPlayground() {
   };
 
   const handleRunCode = async () => {
+    console.log('Running code...');
+    console.log(BACKEND_URL);
     setIsRunning(true);
     setOutput('Running...');
     

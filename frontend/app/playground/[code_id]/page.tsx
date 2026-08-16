@@ -4,7 +4,7 @@ import { useState, useEffect, use } from 'react';
 import Editor from '@monaco-editor/react';
 import axios from 'axios';
 
-const BACKEND_URL = process.env.PUBLIC_BACKEND_URL || 'http://localhost:5000';
+const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
 
 export default function Playground({ params }: { params: Promise<{ code_id: string }> }) {
   
