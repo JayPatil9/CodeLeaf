@@ -24,6 +24,7 @@ export default function Playground({ params }: { params: Promise<{ code_id: stri
         const res = await axios.get(`${BACKEND_URL}/api/snippets/${targetId}`);
         setCode(res.data.code);
         if (res.data.language) setLanguage(res.data.language);
+        if (res.data.input_data) setStdin(res.data.input_data);
       } catch (err) {
         setCode('// Failed to load snippet or invalid ID.');
       }

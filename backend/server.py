@@ -40,7 +40,7 @@ def serialize_doc(doc):
 @app.route('/api/snippets/<id>', methods=['GET'])
 def get_snippet(id):
     try:
-        snippet = snippets_collection.find_one({"code_id": ObjectId(id)})
+        snippet = snippets_collection.find_one({"code_id": id})
         if not snippet:
             return jsonify({"error": "Snippet not found"}), 404
         return jsonify(serialize_doc(snippet))
